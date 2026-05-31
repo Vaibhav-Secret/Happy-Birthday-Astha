@@ -1,8 +1,15 @@
-export default function Note() {
-  return (
-    <section className="section flex items-center justify-center px-8">
+import { motion } from "framer-motion";
 
-      <div className="glass max-w-3xl p-10 rounded-3xl">
+export default function Note({ onNext }) {
+  return (
+    <section className="h-screen flex items-center justify-center px-8 gradient-bg">
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="glass max-w-3xl p-10 rounded-3xl"
+      >
 
         <h2 className="text-4xl mb-8">
           A Small Birthday Wish
@@ -36,7 +43,15 @@ export default function Note() {
           Happy Birthday, Astha.
         </p>
 
-      </div>
+        <button
+          onClick={onNext}
+          className="mt-10 px-8 py-4 bg-black text-white rounded-full"
+        >
+          One Last Thing →
+        </button>
+
+      </motion.div>
+
     </section>
   );
 }

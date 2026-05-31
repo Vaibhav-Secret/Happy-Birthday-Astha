@@ -19,6 +19,8 @@ export default function Landing({ onOpen }) {
         className="mt-6 text-xl"
       >
         I made a little something for your special day.
+
+        Hope this makes you smile.
       </motion.p>
 
       <motion.button

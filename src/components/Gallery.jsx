@@ -1,42 +1,68 @@
 import { motion } from "framer-motion";
 
 const photos = [
-  "/photo1.jpg",
-  "/photo2.jpg",
-  "/photo3.jpg",
+  `${import.meta.env.BASE_URL}photo1.jpg`,
+  `${import.meta.env.BASE_URL}photo2.jpg`,
+  `${import.meta.env.BASE_URL}photo3.jpg`,
 ];
 
-export default function Gallery() {
+function Photo({ photo, delay }) {
   return (
-    <section className="section flex items-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay,
+        duration: 0.8,
+      }}
+      className="rounded-3xl overflow-hidden"
+    >
+      <img
+        src={photo}
+        alt=""
+        className="
+          w-32 h-44
+          sm:w-40 sm:h-56
+          md:w-56 md:h-72
+          object-cover
+          rounded-2xl
+        "
+      />
+    </motion.div>
+  );
+}
 
-      <div className="w-full overflow-x-auto">
+export default function Gallery({ onNext }) {
+  return (
+    <section className="min-h-screen gradient-bg flex items-center justify-center px-4 py-8">
+      <div className="text-center w-full max-w-5xl">
+        <h2 className="text-3xl md:text-4xl mb-8 md:mb-10">
+          A Few Favorite Photos
+        </h2>
 
-        <div className="flex gap-10 px-10 py-10 min-w-max">
+        <div className="flex flex-col items-center gap-4 md:gap-8">
 
-          {photos.map((photo, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="glass p-4 rounded-3xl"
-            >
-              <img
-                src={photo}
-                alt=""
-                className="w-72 h-96 object-cover rounded-2xl"
-              />
+          <div className="flex justify-center">
+            <Photo photo={photos[0]} delay={0} />
+          </div>
 
-              <p className="mt-4 text-center">
-                Favorite photo #{index + 1}
-              </p>
-
-            </motion.div>
-          ))}
+          <div className="flex justify-center gap-4 md:gap-8">
+            <Photo photo={photos[1]} delay={0.5} />
+            <Photo photo={photos[2]} delay={1} />
+          </div>
 
         </div>
 
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8 }}
+          onClick={onNext}
+          className="mt-8 md:mt-12 px-8 py-4 rounded-full bg-black text-white"
+        >
+          Continue
+        </motion.button>
       </div>
-
     </section>
   );
 }

@@ -1,28 +1,38 @@
 import { motion } from "framer-motion";
 
-export default function Hero() {
+export default function Hero({ onNext }) {
   return (
-    <section className="section gradient-bg flex items-center justify-center px-8">
+    <section className="h-screen gradient-bg flex items-center justify-center px-8">
 
-      <div className="text-center">
+      <div className="text-center max-w-3xl">
 
         <motion.h1
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-5xl md:text-8xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl md:text-8xl font-light"
         >
-          🎉 Happy Birthday
+          Happy Birthday 🎉
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="max-w-2xl mt-8 text-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="mt-8 text-xl md:text-2xl"
         >
-          Another trip around the sun,
-          and somehow the world got a little brighter.
+        Welcome to 24-teen
         </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          onClick={onNext}
+          className="mt-12 px-8 py-4 rounded-full bg-black text-white"
+        >
+          Continue →
+        </motion.button>
 
       </div>
 
