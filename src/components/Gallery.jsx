@@ -37,7 +37,7 @@ export default function Gallery({ onNext }) {
     <section className="min-h-screen gradient-bg flex items-center justify-center px-4 py-8">
       <div className="text-center w-full max-w-5xl">
         <h2 className="text-3xl md:text-4xl mb-8 md:mb-10">
-          A Few Favorite Photos
+          Proof That You Take Good Photos
         </h2>
 
         <div className="flex flex-col items-center gap-4 md:gap-8">

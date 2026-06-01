@@ -31,7 +31,7 @@ export default function Hero({ onNext }) {
           onClick={onNext}
           className="mt-12 px-8 py-4 rounded-full bg-black text-white"
         >
-          Continue →
+          Continue
         </motion.button>
 
       </div>
